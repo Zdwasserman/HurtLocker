@@ -1,5 +1,6 @@
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
+import java.util.regex.Matcher;
 
 public class Main {
 
@@ -10,8 +11,25 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception{
+        Patterns patterns = new Patterns();
+        Counter counter = new Counter();
+        Matcher matcher;
         String output = (new Main()).readRawDataToString();
-        System.out.println(output);
+        matcher = patterns.apples(output);
+        int numOfApples = counter.patternCounter(matcher);
+        matcher = patterns.bread(output);
+        int numOfBread = counter.patternCounter(matcher);
+        matcher = patterns.cookies(output);
+        int numOfCookies = counter.patternCounter(matcher);
+        matcher = patterns.milk(output);
+        int numOfMilk = counter.patternCounter(matcher);
+        System.out.println("Milk: " +numOfMilk);
+        System.out.println("Bread: " + numOfBread);
+        System.out.println("Cookies: " +numOfCookies);
+        System.out.println("Apples: " + numOfApples);
+
+
 
     }
+
 }
