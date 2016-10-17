@@ -9,8 +9,9 @@ public class Patterns {
 
     public Matcher name(String str)
     {
-        Pattern pattern = Pattern.compile("(?i)(n[a-z][a-z]e)");
+        Pattern pattern = Pattern.compile("(?i)(n[a-z][a-z]e:)");
         Matcher matcher = pattern.matcher(str);
+
         return matcher;
     }
     public Matcher milk(String str)
@@ -37,7 +38,12 @@ public class Patterns {
         Pattern pattern = Pattern.compile("(?i)(b[a-z][a-z][a-z]d)");
         Matcher matcher = pattern.matcher(str);
         return matcher;
-
+    }
+    public Matcher newObject(String str)
+    {
+        Pattern pattern = Pattern.compile("##");
+        Matcher matcher = pattern.matcher(str);
+        return matcher;
     }
 
 

@@ -61,4 +61,5 @@ public class PatternsTestTest
         int expected = 2;
         assertEquals(expected, actual);
     }
+
 }
