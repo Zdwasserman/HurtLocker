@@ -12,25 +12,33 @@ public class Food
     String type;
     String price;
     String experation;
-    Patterns patterns = new Patterns();
     public Food(){
 
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public String getPrice() {
+    public String getPrice()
+    {
         return price;
     }
 
-    public String getExperation() {
+    public String getExperation()
+    {
         return experation;
+    }
+
+    public void setName(String name)
+    {
+       this.name = name;
     }
 
     public Food(String name, String type, String price, String experation)

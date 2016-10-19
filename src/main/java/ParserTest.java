@@ -39,6 +39,84 @@ public class ParserTest {
         String expected = "Milk";
         assertEquals(expected, actual);
     }
+    @Test
+    public void fixNamesMilkTest()
+    {
+        Parser parser = new Parser();
+        String[] splitraw = parser.splitRaw("naMe:mIlK;price:3.23;type:Food;expiration:1/25/2016##");
+        ArrayList<String[]> foodlist = parser.splitData(splitraw);
+        parser.createFood(foodlist);
+        parser.fixNames(parser.foods);
+        String actual = parser.foods.get(0).getName();
+        String expected = "Milk";
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    public void fixNamesApplesTest()
+    {
+        Parser parser = new Parser();
+        String[] splitraw = parser.splitRaw("naMe:ApPlEs;price:3.23;type:Food;expiration:1/25/2016##");
+        ArrayList<String[]> foodlist = parser.splitData(splitraw);
+        parser.createFood(foodlist);
+        parser.fixNames(parser.foods);
+        String actual = parser.foods.get(0).getName();
+        String expected = "Apples";
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    public void fixNamesCookiesTest()
+    {
+        Parser parser = new Parser();
+        String[] splitraw = parser.splitRaw("naMe:C00kIeS;price:3.23;type:Food;expiration:1/25/2016##");
+        ArrayList<String[]> foodlist = parser.splitData(splitraw);
+        parser.createFood(foodlist);
+        parser.fixNames(parser.foods);
+        String actual = parser.foods.get(0).getName();
+        String expected = "Cookies";
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    public void fixNamesBreadTest()
+    {
+        Parser parser = new Parser();
+        String[] splitraw = parser.splitRaw("naMe:BrEaD;price:3.23;type:Food;expiration:1/25/2016##");
+        ArrayList<String[]> foodlist = parser.splitData(splitraw);
+        parser.createFood(foodlist);
+        parser.fixNames(parser.foods);
+        String actual = parser.foods.get(0).getName();
+        String expected = "Bread";
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    public void getPricesTest()
+    {
+        Parser parser = new Parser();
+        String[] splitraw = parser.splitRaw("naMe:BrEaD;price:3.23;type:Food;expiration:1/25/2016##");
+        ArrayList<String[]> foodlist = parser.splitData(splitraw);
+        parser.createFood(foodlist);
+        parser.getPrices(parser.foods);
+        String actual = parser.listOfPrices.get(0).get(0);
+        String expected = "3.23";
+        assertEquals(expected, actual);
+
+    }
+    @Test
+    public void combineFoodListTest()
+    {
+        Parser parser = new Parser();
+        Food food = new Food("Bread", "Food", "3.23", "10/18/2015");
+        parser.foods.add(food);
+        parser.combineFoodList(parser.foods);
+        String actual = parser.allFood.toString();
+        String expected = "{Bread=1}";
+        assertEquals(expected, actual);
+    }
+
+
 
 
 }

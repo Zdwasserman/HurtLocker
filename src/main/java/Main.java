@@ -11,16 +11,19 @@ public class Main {
         return result;
     }
 
-    public static void main(String[] args) throws Exception{
-
-
-        Matcher matcher;
+    public static void main(String[] args) throws Exception {
+        Parser parser = new Parser();
         String output = (new Main()).readRawDataToString();
+        String[] data = parser.splitRaw(output);
+        ArrayList<String[]> foodlist = parser.splitData(data);
+        parser.createFood(foodlist);
+        parser.fixNames(parser.foods);
+        parser.getPrices(parser.foods);
+        parser.combineFoodList(parser.foods);
+        parser.displayData();
+    }
 
-        //String[] data = food.splitRaw(output);
-        //ArrayList<String[]> foodlist= food.splitData(data);
-        //food.createFood(foodlist);
 
     }
 
-}
+
